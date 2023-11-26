@@ -123,6 +123,34 @@ namespace BinaryTree
                 InOrderTraversalRec(root.Right);
             }
         }
+        public void PreOrderTraversal()
+        {
+            PreOrderTraversal(Root);
+            Console.WriteLine();
+        }
+        public void PreOrderTraversal(Node root)
+        {
+            if (root != null)
+            {
+                Console.WriteLine(root.Data + " ");
+                PreOrderTraversal(root.Left);
+                PreOrderTraversal(root.Right);
+            }
+        }
+        public void PostOrderTraversal()
+        {
+            PostOrderTraversal(Root);
+            Console.WriteLine();
+        }
+        public void PostOrderTraversal(Node root)
+        {
+            if (root != null)
+            {
+                PostOrderTraversal(root.Left);
+                PostOrderTraversal(root.Right);
+                Console.WriteLine(root.Data + " ");
+            }
+        }
 
     }
 }
