@@ -38,6 +38,8 @@ namespace BinaryTree
             return root;
         }
 
+
+
         public void Remove(int data) 
         {
             Root = RemoveRec(Root, data);
@@ -82,6 +84,16 @@ namespace BinaryTree
                 root = root.Left;
             }
             return minValue;
+        }
+
+        public int MaxDepth(Node root) 
+        {
+            if (root == null)
+                return 0;
+
+            int left = MaxDepth(root.Left);
+            int right = MaxDepth(root.Right);
+            return Math.Max(left, right) + 1;
         }
 
         public bool Search(int data)
@@ -150,6 +162,18 @@ namespace BinaryTree
                 PostOrderTraversal(root.Right);
                 Console.WriteLine(root.Data + " ");
             }
+        }
+        //226. Invert Binary Tree
+        //Given the root of a binary tree, invert the tree, and return its root.
+
+        public Node InvertTree(Node root) {
+            if (root != null) 
+            {
+                var temp = root.Left;
+                root.Left = root.Right;
+                root.Right = InvertTree(temp);
+            }
+            return root;
         }
 
     }
